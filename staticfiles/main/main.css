@@ -7,18 +7,20 @@ body {
     min-height: 100vh;
 }
 main {
-    flex: 1; /* розтягує контент, якщо мало елементи */
+    flex: 1;
 }
+
+/* --- Шапка (header) --- */
 .hats {
     display: flex;
     flex-wrap: wrap;
-    background-color:#2e3d2b;
+    background-color: #2e3d2b;
     color: #bbaf30;
-    padding: 10px;
+    padding: 10px 40px;
     align-items: center;
     gap: 24px;
     box-shadow: 0 4px 16px rgba(255, 0, 0, 0.18);
-    border-radius: 0 0  90px  90px; 
+    border-radius: 0 0 90px 90px;
 }
 .hats h2{
     font-family: serif;
@@ -45,22 +47,70 @@ main {
     align-items: center;
 }
 
-  
 @media (max-width: 600px) {
-    .link  {
-      flex-direction: column;
-      align-items: flex-start;
+    /* --- Телефонна версія: шапка --- */
+    .hats {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0px;
+        gap: 0px;
+        border-radius: 0 0 32px 32px;
+        min-height: 0px;
     }
-  }
+    .hats h2{
+        font-family: serif;
+        font-size: 1.3rem;
+        margin: 0 0 0 10px;
+    }
+    .hats_img_logo{
+        width: 46px;
+        height: 46px;
+        object-fit: cover;
+        border-radius: 100px;
+        background-color: transparent;
+        margin-left: 0;
+    }
+    .link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+    .icon {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #ffffff;
+    }
+    .icon a {
+        font-size: 1rem;
+        padding: 4px 7px;
+        border-radius: 4px;
+        transition: background 0.7s, color 0.7s;
+        text-decoration: none;
+        display: inline-block;
+    }
+    .icon a:hover {
+        background: #bbaf30;
+        color: #000000;
+        transition: background 0.7s, color 0.7s;
+    }
+    .custom-carousel-pagination {
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
 
-
+/* --- КАТЕГОРІЇ: по горизонталі на мобільному --- */
 .category_content, .content {
     display: flex;
-    flex-wrap: nowrap;          /* 🔥 НЕ переносимо ряд */
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 15px;
-    width: 1430px;              /* 🔥 рівно на 5 карток */
-    margin: 0 auto;             /* по центру */
+    width: 1430px;
+    margin: 0 auto;
 }
 
 /* Всі картки зменшуються, коли наводиш на контейнер */
@@ -96,18 +146,17 @@ main {
 }
 
 .content_item * {
-    flex-shrink: 0;        /* 🔥 Убирає стрибки всередині */
+    flex-shrink: 0;
 }
 
 .content_item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;     /* 🔥 Фото не стрибає */
+    object-fit: cover;
     pointer-events: none;
     border-radius: 30px;
 }
 
-/* overlay (текст) на фото, коли .overlay_text тепер поверх .content_img */
 .overlay_text {
     position: absolute;
     left: 0;
@@ -124,42 +173,83 @@ main {
     word-break: break-word;
     text-align: center;
     text-shadow: 0 0 10px #fff, 0 4px 16px rgba(0, 0, 0, 0.523), 0 1.5px 2px rgba(0,0,0,0.12);
-    pointer-events: none; 
+    pointer-events: none;
 }
 
-
-
-/* Для малих екранів - по одному в ряд */
+/* Для малих екранів - категорії вертикально, картки підряд одна під одною */
 @media (max-width: 900px) {
+    .category_content, .content {
+        width: 100vw;
+        max-width: 100vw;
+        justify-content: flex-start;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        overflow-x: unset;
+        gap: 10px;
+        margin: 0;
+        padding: 0 2vw;
+    }
     .content_item {
-        flex: 0 0 90%;
-        max-width: 90%;
+        min-width: unset;
+        max-width: 95vw;
+        width: 95vw;
+        height: 210px;
+        margin: 8px 0;
+    }
+    .category_content:hover .content_item,
+    .category_content .content_item:hover {
+        width: 95vw;
+        z-index: initial;
     }
 }
 
-/* Для середніх екранів - по два в ряд */
-@media (min-width: 901px) and (max-width: 1199px) {
-    .content_item {
-        flex: 0 0 calc(50% - 30px);
-        max-width: calc(50% - 30px);
-    }
-}
 @media (max-width: 600px) {
+    .category_content, .content {
+        width: 100vw;
+        max-width: 100vw;
+        justify-content: flex-start;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        overflow-x: unset;
+        gap: 8px;
+        margin: 0;
+        padding: 0 2vw;
+        scrollbar-width: thin;
+    }
+    .content_item {
+        min-width: unset;
+        max-width: 98vw;
+        width: 98vw;
+        height: 160px;
+        border-radius: 13px;
+        margin: 6px 0;
+    }
+    .category_content:hover .content_item,
+    .category_content .content_item:hover {
+        width: 98vw;
+        z-index: initial;
+    }
+    .content_item img,
     .content_img {
-        width: 220px;
-        height: 220px;
+        width: 100%!important;
+        height: 100%!important;
         object-fit: cover;
-        border-radius: 15px;
-        
+        border-radius: 13px;
+        min-width: unset;
+        min-height: unset;
+    }
+    .overlay_text {
+        font-size: 1.1rem;
+        padding: 0 6px;
     }
 }
 
-
+/* --- ДЕТАЛІ ТОВАРУ: без змін, лише дрібна адаптація --- */
 .product-detail {
     display: flex;
     flex-direction: row;
-    justify-content: center;         /* Центрує контент по горизонталі */
-    align-items: center;             /* Центрує контент по вертикалі */
+    justify-content: center;
+    align-items: center;
     gap: 36px;
     padding: 30px;
 }
@@ -171,11 +261,9 @@ main {
     max-height: 70vw;
     object-fit: cover;
     border-radius: 30px;
-    /* Ensure image is left-aligned by default in flex row */
     margin-right: 30px;
     flex-shrink: 0;
 }
-
 .product-info {
     display: flex;
     flex-direction: column;
@@ -184,17 +272,13 @@ main {
     box-shadow: 0 4px 16px rgba(0,0,0,0.18), 0 1.5px 2px rgba(0,0,0,0.12);
     padding: 30px 80px;
     border-radius: 30px;
-    /* So info doesn't stretch full width on big screens */
     min-width: 600px;
     min-height: 600px;
     max-width: 550px;
 }
-
 .product-detail-name {
     margin-bottom: 18px;
-    
 }
-
 @media (max-width: 900px) {
     .product-detail {
         flex-direction: column;
@@ -206,6 +290,7 @@ main {
         padding: 10px 20px;
         max-width: 95vw;
         min-width: unset;
+        min-height: unset;
     }
     .product-detail-img {
         width: 95vw;
@@ -215,27 +300,33 @@ main {
         margin-right: 0;
     }
 }
-
 @media (max-width: 600px) {
     .product-detail {
         flex-direction: column;
         align-items: center;
-        gap: 16px;
-        padding: 12px;
+        gap: 14px;
+        padding: 6px;
     }
     .product-detail-img {
-        width: 95vw;
-        height: 60vw;
-        max-width: 360px;
-        max-height: 360px;
+        width: 96vw;
+        height: 56vw;
+        max-width: 210px;
+        max-height: 210px;
+        border-radius: 15px;
     }
     .product-info{
-        padding: 10px 30px 10px 30px;
+        padding: 8px 8px 8px 8px;
+        border-radius: 11px;
+        font-size: 0.9rem;
+        min-width: unset;
+        min-height: unset;
+        max-width: 98vw;
+        box-shadow: 0 1.5px 4px rgba(0,0,0,0.12);
     }
 }
 
 
-
+/* --- Футер (підвал) --- */
 .footer {
     width: 100%;
     background-color: #2e3d2b;
@@ -244,9 +335,7 @@ main {
     font-size: 1.5rem;
     box-shadow: 0 4px 16px rgba(255, 0, 0, 0.18);
     border-radius: 90px 90px 0 0;
-
 }
-
 .footer p{
     font-family: serif;
     font-size: 1.5rem;
@@ -257,27 +346,32 @@ main {
     align-items: center;
     margin: 0 auto;
     padding: 0 20px;
-  }
-  
+}
 @media (max-width: 600px) {
+    .footer {
+        font-size: 1rem;
+        padding: 7px 2px;
+        border-radius: 30px 30px 0 0;
+    }
+    .footer p {
+        font-size: 1rem;
+    }
     .footer-content {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 0 6px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 0 2px;
     }
 }
-  
-  .footer-left {
+.footer-left {
     display: flex;
     align-items: center;
 }
-  
 @media (max-width: 600px) {
     .footer-left {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 6px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
     }
 }
 .icon {
@@ -286,7 +380,6 @@ main {
     gap: 8px;
     color: #ffffff;
 }
-  
 .icon a {
     all: unset;
     cursor: pointer;
@@ -299,7 +392,12 @@ main {
     display: inline-block;
     font-size: 1.8rem;
 }
-  
+@media (max-width: 600px) {
+    .icon a {
+        font-size: 1.2rem;
+        padding: 4px 8px;
+    }
+}
 .icon a:hover {
     background: #bbaf30;
     color: #000000;

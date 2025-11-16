@@ -13,9 +13,13 @@ class Category(models.Model):
 class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='%(class)ss')
     image = models.ImageField(upload_to='products/', null=True, blank=True)
+    image_1 = models.ImageField(upload_to='products/', null=True, blank=True)
+    image_2= models.ImageField(upload_to='products/', null=True, blank=True)
+    image_3 = models.ImageField(upload_to='products/', null=True, blank=True)
+    image_4 = models.ImageField(upload_to='products/', null=True, blank=True)
+    image_5 = models.ImageField(upload_to='products/', null=True, blank=True)
     name = models.CharField(max_length=250, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    composition = models.TextField(null=True, blank=True)
     price = models.CharField(max_length=250, null=True, blank=True)
 
     def __str__(self):

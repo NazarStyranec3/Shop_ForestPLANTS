@@ -4,7 +4,21 @@
   {% if product.image %}
   <img class="product-detail-img" src="{{ product.image.url }}" alt="{{ product.name }}">
   {% endif %}
-
+  {% if product.image_1 %}
+  <img class="product-detail-img" src="{{ product.image_1.url }}" alt="{{ product.name }}_1">
+  {% endif %}
+  {% if product.image_2 %}
+  <img class="product-detail-img" src="{{ product.image_2.url }}" alt="{{ product.name }}_2">
+  {% endif %}
+  {% if product.image_3 %}
+  <img class="product-detail-img" src="{{ product.image_3.url }}" alt="{{ product.name }}_3">
+  {% endif %}
+  {% if product.image_4 %}
+  <img class="product-detail-img" src="{{ product.image_4.url }}" alt="{{ product.name }}_4">
+  {% endif %}
+  {% if product.image_5 %}
+  <img class="product-detail-img" src="{{ product.image_5.url }}" alt="{{ product.name }}_5">
+  {% endif %}
   <div class="product-info">
     {% if  product.name  %}
     <h3 class="product-detail-name">{{ product.name }}</h3>
@@ -12,10 +26,6 @@
     {% if product.description %}
     <h4 class="characteristic">Опис:</h4>
     <p>{{ product.description|linebreaks }}</p>
-    {% endif %}
-    {% if product.composition %}
-    <h4 class="characteristic">Склад:</h4>
-    <p>{{ product.composition|linebreaks }}</p>
     {% endif %}
     {% if product.price %}
       <h2 class="price">{{ product.price }} ₴</h2>

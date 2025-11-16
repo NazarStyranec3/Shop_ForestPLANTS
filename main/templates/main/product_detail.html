@@ -1,0 +1,29 @@
+{% extends 'main/dad.html' %}
+{% block body %}
+<div class="product-detail">
+  {% if product.image %}
+  <img class="product-detail-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+  {% endif %}
+
+  <div class="product-info">
+    {% if  product.name  %}
+    <h3 class="product-detail-name">{{ product.name }}</h3>
+    {% endif %}
+    {% if product.description %}
+    <h4 class="characteristic">Опис:</h4>
+    <p>{{ product.description|linebreaks }}</p>
+    {% endif %}
+    {% if product.composition %}
+    <h4 class="characteristic">Склад:</h4>
+    <p>{{ product.composition|linebreaks }}</p>
+    {% endif %}
+    {% if product.price %}
+      <h2 class="price">{{ product.price }} ₴</h2>
+    {% endif %}
+  </div>
+</div>
+
+
+
+{% endblock %}
+

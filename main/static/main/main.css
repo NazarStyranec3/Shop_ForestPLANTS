@@ -51,14 +51,14 @@ main {
     /* --- Телефонна версія: шапка --- */
     .hats {
         border-radius: 0 0 32px 32px;
-        padding: 0px 20px;
+        padding: 10px 20px;
     }
     .hats h2{
         font-family: serif;
-        font-size: 1.3rem;
+        font-size: 1.8rem;
     }
     .hats_img_logo{
-        width: 80px;
+        width: 100px;
         object-fit: cover;
         border-radius: 100px;
         background-color: transparent;
@@ -103,7 +103,7 @@ main {
     flex-wrap: nowrap;
     justify-content: center;
     gap: 15px;
-    width: 1430px;
+    width: 95%;
     margin: 0 auto;
 }
 
@@ -190,53 +190,8 @@ main {
         height: 210px;
         margin: 8px 0;
     }
-    .category_content:hover .content_item,
-    .category_content .content_item:hover {
-        width: 95vw;
-        z-index: initial;
-    }
 }
 
-@media (max-width: 600px) {
-    .category_content, .content {
-        width: 100vw;
-        max-width: 100vw;
-        justify-content: flex-start;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        overflow-x: unset;
-        gap: 8px;
-        margin: 0;
-        padding: 0 2vw;
-        scrollbar-width: thin;
-    }
-    .content_item {
-        min-width: unset;
-        max-width: 98vw;
-        width: 98vw;
-        height: 160px;
-        border-radius: 13px;
-        margin: 6px 0;
-    }
-    .category_content:hover .content_item,
-    .category_content .content_item:hover {
-        width: 98vw;
-        z-index: initial;
-    }
-    .content_item img,
-    .content_img {
-        width: 100%!important;
-        height: 100%!important;
-        object-fit: cover;
-        border-radius: 13px;
-        min-width: unset;
-        min-height: unset;
-    }
-    .overlay_text {
-        font-size: 1.1rem;
-        padding: 0 6px;
-    }
-}
 
 /* --- ДЕТАЛІ ТОВАРУ: без змін, лише дрібна адаптація --- */
 .product-detail {

@@ -1,0 +1,278 @@
+body {
+    background-color: rgb(240, 255, 254);
+}
+
+.hats {
+    display: flex;
+    flex-wrap: wrap;
+    background-color:#2e3d2b;
+    color: #bbaf30;
+    padding: 10px;
+    align-items: center;
+    gap: 24px;
+    box-shadow: 0 4px 16px rgba(255, 0, 0, 0.18);
+    border-radius: 0 0  90px  90px; 
+}
+.hats h2{
+    font-family: serif;
+    font-size: 2.5rem;
+}
+.hats_img_logo{
+    width: 120px;
+    object-fit: cover;
+    border-radius: 150px;
+    background-color: transparent;
+    margin-left: 30px;
+}
+
+.link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+/* Забезпечити, що іконки і текст ідуть в строку */
+.icon {
+    display: flex;
+    align-items: center;
+}
+
+  
+@media (max-width: 600px) {
+    .link  {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px;
+}
+
+.category_content {
+    display: flex;
+    flex-wrap: nowrap;          /* 🔥 НЕ переносимо ряд */
+    justify-content: center;
+    gap: 15px;
+    width: 1430px;              /* 🔥 рівно на 5 карток */
+    margin: 0 auto;             /* по центру */
+}
+
+/* Всі картки зменшуються, коли наводиш на контейнер */
+.category_content:hover .content_item {
+    width: 240px;
+}
+
+/* Збільшення наведеної */
+.category_content .content_item:hover {
+    width: 500px;
+    z-index: 2;
+}
+/* Базова картка */
+.content_item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18), 0 1.5px 2px rgba(0,0,0,0.12);
+    text-decoration: none;
+    border-radius: 30px;
+    height: 475px;
+    width: 270px;
+    overflow: hidden;   
+    margin: 10px 0px 0px 0px;  
+    transition:
+        transform 0.4s,
+        width 0.4s,
+        height 0.4s,
+        background 0.3s,
+        box-shadow 0.3s,
+        padding 0.3s;
+}
+
+.content_item * {
+    flex-shrink: 0;        /* 🔥 Убирає стрибки всередині */
+}
+
+.content_item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* 🔥 Фото не стрибає */
+    pointer-events: none;
+    border-radius: 30px;
+}
+
+/* overlay (текст) на фото, коли .overlay_text тепер поверх .content_img */
+.overlay_text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+    color: #000000;
+    font-weight: bold;
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+    text-shadow: 0 0 10px #fff, 0 4px 16px rgba(0, 0, 0, 0.523), 0 1.5px 2px rgba(0,0,0,0.12);
+    pointer-events: none; 
+}
+
+
+
+/* Для малих екранів - по одному в ряд */
+@media (max-width: 900px) {
+    .content_item {
+        flex: 0 0 90%;
+        max-width: 90%;
+    }
+}
+
+/* Для середніх екранів - по два в ряд */
+@media (min-width: 901px) and (max-width: 1199px) {
+    .content_item {
+        flex: 0 0 calc(50% - 30px);
+        max-width: calc(50% - 30px);
+    }
+}
+@media (max-width: 600px) {
+    .content_img {
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 15px;
+        
+    }
+}
+
+
+.product-detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px;
+}
+
+.product-detail-img {
+    width: 900px;
+    height: 900px;
+    max-width: 100vw;
+    max-height: 70vw;
+    object-fit: cover;
+}
+.product-detail-name{
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18), 0 1.5px 2px rgba(0,0,0,0.12);
+    padding: 30px 80px 30px 80px;
+    border-radius: 30px;
+}
+
+.product-info{
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18), 0 1.5px 2px rgba(0,0,0,0.12);
+    padding: 30px 80px 30px 80px;
+    border-radius: 30px;
+}
+@media (max-width: 600px) {
+    .product-detail {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 12px;
+    }
+    .product-detail-img {
+        width: 95vw;
+        height: 60vw;
+        max-width: 360px;
+        max-height: 360px;
+    }
+    .product-info{
+        padding: 10px 30px 10px 30px;
+    }
+}
+
+
+
+.footer {
+    width: 100%;
+    background-color: #2e3d2b;
+    color: #bbaf30;
+    padding: 15px;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 16px rgba(255, 0, 0, 0.18);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    border-radius: 90px  90px 0 0 ; 
+}
+
+.footer p{
+    font-family: serif;
+    font-size: 1.5rem;
+}
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  @media (max-width: 600px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 0 6px;
+    }
+  }
+  
+  .footer-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  @media (max-width: 600px) {
+    .footer-left {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+  }
+  .icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+  }
+  
+  .icon a {
+    all: unset;
+    cursor: pointer;
+    color: #f3f3f3;
+    font-size: 18px;
+    padding: 6px 14px;
+    border-radius: 7px;
+    transition: background 0.7s, color 0.7s;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.8rem;
+  }
+  
+  .icon a:hover {
+    background: #bbaf30;
+    color: #000000;
+    transition:background 0.7s, color 0.7s;
+  }

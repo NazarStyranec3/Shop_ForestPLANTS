@@ -1,5 +1,15 @@
 // Карусель з фотографіями для product_detail.html
-
+// На мобільній версії ховаємо .link
+function hideLinksOnMobile() {
+    var linkDivs = document.querySelectorAll('.link');
+    if (window.innerWidth <= 600) {
+        linkDivs.forEach(el => el.style.display = 'none');
+    } else {
+        linkDivs.forEach(el => el.style.display = '');
+    }
+}
+hideLinksOnMobile();
+window.addEventListener('resize', hideLinksOnMobile);   
 document.addEventListener("DOMContentLoaded", function () {
     // Вибираємо всі зображення продукту і залишаємо тільки ті, які видимі
     const imgs = Array.from(document.querySelectorAll('.product-detail-img'))
@@ -166,3 +176,4 @@ document.addEventListener("DOMContentLoaded", function () {
     updateBtnPosition();
     window.addEventListener('resize', updateBtnPosition);
 });
+

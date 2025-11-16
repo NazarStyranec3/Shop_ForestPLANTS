@@ -101,12 +101,10 @@ main {
 .category_content, .content {
     display: flex;
     flex-wrap: nowrap;
+    justify-content: center;
     gap: 15px;
     width: 95%;
     margin: 0 auto;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 /* Всі картки зменшуються, коли наводиш на контейнер */

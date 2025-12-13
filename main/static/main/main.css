@@ -129,6 +129,15 @@ main {
     }
 }
 
+.overlay_text {
+    transition: font-size 0.25s, transform 0.25s;
+}
+
+.overlay_text:hover {
+    font-size: 1.7rem;
+    transform: scale(1.08);
+}
+
 /* Базова картка */
 .content_item {
     position: relative;
@@ -360,6 +369,7 @@ main {
 .footer-left {
     display: flex;
     align-items: center;
+    padding: 10px 0 0 0 ;
 }
 @media (max-width: 600px) {
     .footer-left {
